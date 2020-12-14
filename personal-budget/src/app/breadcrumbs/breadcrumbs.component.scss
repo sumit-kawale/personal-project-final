@@ -1,0 +1,11 @@
+p {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 140px;
+  font-size: 20px;
+  padding: 50px;
+  text-align: center;
+  white-space: normal;
+  width: calc(32% - .5em);
+  white-space: wrap;
+}
