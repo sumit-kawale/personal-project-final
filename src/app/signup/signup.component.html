@@ -1,0 +1,22 @@
+<!-- <p>signup works!</p> -->
+
+<div class="center p-2">
+  <h1> Sign Up</h1>
+
+  <div class="formGroup">
+    <input type="text" class="formControl" placeholder="Username" #userName required>
+  </div>
+<br>
+  <div class="formGroup">
+    <input type="password" class="formControl" placeholder="Password" #userPassword required>
+  </div>
+<br>
+  <div class = "formGroup">
+    <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userName.value, userPassword.value)">
+  </div>
+<br>
+  <div class="redirectToLogin">
+    <span> Already have an account? <span class="redirect" routerLink="/login"> Log In</span></span>
+  </div>
+
+</div>

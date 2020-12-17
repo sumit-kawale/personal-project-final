@@ -1,0 +1,60 @@
+
+<nav >
+  <ul>
+    <li>
+      <button type="button" (click)="setJanuary()">January</button>
+    </li>
+    <li>
+      <button type="button" (click)="setFebruary()">February</button>
+    </li>
+    <li>
+      <button type="button" (click)="setMarch()">March</button>
+    </li>
+    <li>
+      <button type="button" (click)="setApril()">April</button>
+    </li>
+    <li>
+      <button type="button" (click)="setMay()">May</button>
+    </li>
+    <li>
+      <button type="button" (click)="setJune()">June</button>
+    </li>
+    <li>
+      <button type="button" (click)="setJuly()">July</button>
+    </li>
+    <li>
+      <button type="button" (click)="setAugust()">August</button>
+    </li>
+    <li>
+      <button type="button" (click)="setSeptember()">September</button>
+    </li>
+    <li>
+      <button type="button" (click)="setOctober()">October</button>
+    </li>
+    <li>
+      <button type="button" (click)="setNovember()">November</button>
+    </li>
+    <li>
+      <button type="button" (click)="setDecember()">December</button>
+    </li>
+
+  </ul>
+</nav>
+<div class="center">
+<br>
+<br>
+<pb-january *ngIf="this.monthSet=='jan'"></pb-january>
+<pb-february *ngIf="this.monthSet=='feb'"></pb-february>
+<pb-march *ngIf="this.monthSet=='mar'"></pb-march>
+<pb-april *ngIf="this.monthSet=='apr'"></pb-april>
+<pb-may *ngIf="this.monthSet=='may'"></pb-may>
+<pb-june *ngIf="this.monthSet=='jun'"></pb-june>
+<pb-july *ngIf="this.monthSet=='jul'"></pb-july>
+<pb-august *ngIf="this.monthSet=='aug'"></pb-august>
+<pb-september *ngIf="this.monthSet=='sep'"></pb-september>
+<pb-october *ngIf="this.monthSet=='oct'"></pb-october>
+<pb-november *ngIf="this.monthSet=='nov'"></pb-november>
+<pb-december *ngIf="this.monthSet=='dec'"></pb-december>
+
+<router-outlet></router-outlet>
+</div>
