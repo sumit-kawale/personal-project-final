@@ -25,8 +25,18 @@ export class DashboardComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.authService.timerOut = setTimeout(()=>{
+      if(confirm('Do you want to stay Logged in?')){
+        location.reload();
+      } else {
+        setTimeout(()=>{
+          this.authService.SignOut();
+          this.router.navigate(['']);
+        }, 50000);
+      }
+    }, 100000)
    }
-   monthSet="jan";
+   monthSet="";
 
   setJanuary(){
     this.monthSet = "jan";

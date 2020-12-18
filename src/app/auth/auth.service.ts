@@ -11,6 +11,8 @@ import { User } from  './user';
 })
 export class AuthService {
   userData: User;
+  public timerOut: any
+
   constructor(
     public afAuth:  AngularFireAuth,
     public router:  Router,
@@ -85,6 +87,7 @@ export class AuthService {
   }
 
   SignOut(){
+    clearTimeout(this.timerOut);
     return firebase.auth().signOut().then(()=>{
       localStorage.removeItem('user');
       localStorage.removeItem('userid');
