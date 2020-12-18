@@ -19,6 +19,7 @@ export class AuthService {
   ) {
     this.afAuth.authState.subscribe(user => {
     if (user){
+      this.router.navigate(['dashboard']);
       this.userData = user;
       localStorage.setItem('user', JSON.stringify(this.userData));
       localStorage.setItem('userid', JSON.stringify(this.userData.uid));
@@ -27,19 +28,25 @@ export class AuthService {
       localStorage.setItem('user', null);
       localStorage.setItem('userid', null);
       JSON.parse(localStorage.getItem('user'));
+      localStorage.removeItem('user');
+      localStorage.removeItem('userid');
     }
   })
 }
   SignIn(email, password){
+    // this.router.navigate(['dashboard']);
     return firebase.auth().signInWithEmailAndPassword(email, password)
     .then((result)=>{
       this.ngZone.run(()=>{
         this.router.navigate(['dashboard']);
+        location.reload();
       });
       this.SetUserData(result.user);
+      // this.router.navigate(['dashboard']);
     }).catch((error)=>{
       window.alert(error.message)
     })
+
   }
 
   SignUp(email, password){

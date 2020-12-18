@@ -1,10 +1,10 @@
-<p>verifyemail works!</p>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <div class = "authBlock">
   <h3> Thank you for Registering</h3>
 
   <div class="formGroup" *ngIf="authService.userData as user">
-    <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
+    <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p><br>
     <p class="text-center">Please check your email and click on the link to verify your email address</p>
   </div>
 
@@ -16,5 +16,6 @@
   </div>
 </div>
 <div class = "redirectToLogin">
-  <span> Go back to? <span class="redirect" routerLink="/signin">Sign in</span></span>
+  <br><br>
+  <span> Go back to? <span class="redirect" routerLink="/login">Sign in</span></span>
 </div>

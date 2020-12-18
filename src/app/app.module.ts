@@ -73,7 +73,7 @@ var firebaseConfig = {
     SeptemberComponent,
     OctoberComponent,
     NovemberComponent,
-    DecemberComponent
+    DecemberComponent,
   ],
   imports: [
     BrowserModule,

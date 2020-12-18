@@ -1,11 +1,11 @@
 
 <h1>Budget/Expense for September</h1>
 <div class="formGroup">
-  <input type="text" class="formControl" [(ngModel)]="BudgetTitle" #title required>
+  <input type="text" class="formControl" placeholder="Title" [(ngModel)]="BudgetTitle" #title required>
 </div>
 <br>
 <div class="formGroup">
-  <input type="number" class="formControl" [(ngModel)]="BudgetAmount" #budget required>
+  <input type="number" class="formControl" placeholder="Budget" [(ngModel)]="BudgetAmount" #budget required>
 </div>
 <br>
 <div class = "formGroup">
@@ -13,8 +13,11 @@
 </div>
 <br>
 
+<div>
+  <h1>Budget Edit</h1>
+</div>
 
-<table class="center" style="width:100%">
+<table class="center" style="width:100%" id="edit1">
   <tr>
     <th>Title</th>
     <th>Budget</th>

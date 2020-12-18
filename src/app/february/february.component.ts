@@ -22,11 +22,15 @@ export class FebruaryComponent implements OnInit {
     public dashBoard: DashboardComponent
   ) { }
 
-  public pie;
   public buble;
   public bar;
+  public pie;
+  budgetTitleData: any;
+  BudgetTitle: string;
+  BudgetAmount: number;
+  upateamount: number;
 
-  public dataSource = {
+  public chartData = {
     datasets: [
         {
             data: [],
@@ -36,36 +40,30 @@ export class FebruaryComponent implements OnInit {
     labels: []
   };
 
-  budgetTitleData: any;
-  BudgetTitle: string;
-  BudgetAmount: number;
-  upateamount: number;
   ngOnInit(): void {
-    this.febServe.getBudget().subscribe(data=>{
-      this.budgetTitleData = data.map(temp=>{
+    this.febServe.getBudget().subscribe(data => {
+      this.budgetTitleData = data.map(tempData => {
         return{
-          id: temp.payload.doc.id,
-          title: temp.payload.doc.data()['title'],
-          amount: temp.payload.doc.data()['amount'],
-          user: temp.payload.doc.data()['user']
+          id: tempData.payload.doc.id,
+          title: tempData.payload.doc.data()['title'],
+          amount: tempData.payload.doc.data()['amount'],
+          user: tempData.payload.doc.data()['user']
         };
       })
 
-      var temp=[]
+      var tempData=[]
       for(let i=0;i<this.budgetTitleData.length;i++)
           {
             if(this.budgetTitleData[i]['user']==localStorage.getItem("userid"))
             {
-              temp.push(this.budgetTitleData[i])
+              tempData.push(this.budgetTitleData[i])
             }
           }
-          this.budgetTitleData=temp
+          this.budgetTitleData=tempData
           for (let i=0;i<this.budgetTitleData.length;i++){
-
-            this.dataSource.datasets[0].data[i]=this.budgetTitleData[i]['amount'];
-            this.dataSource.labels[i]=this.budgetTitleData[i]['title'];
-            this.dataSource.datasets[0].backgroundColor[i]=this.dynamicolors();
-
+            this.chartData.datasets[0].data[i]=this.budgetTitleData[i]['amount'];
+            this.chartData.labels[i]=this.budgetTitleData[i]['title'];
+            this.chartData.datasets[0].backgroundColor[i]=this.dynamicolors();
           }
           setTimeout(() => {
             this.createchart();
@@ -89,47 +87,50 @@ export class FebruaryComponent implements OnInit {
   }
 
   updateData(UserValue){
-    let data={}
-    data['title']=UserValue.title;
-    data['amount']=UserValue.amount;
-    console.log(data);
-    this.febServe.editBudget(UserValue.id, data);
+    let payloadData={}
+    payloadData['title']=UserValue.title;
+    payloadData['amount']=UserValue.amount;
+    console.log(payloadData);
+    this.febServe.editBudget(UserValue.id, payloadData);
 
     this.createchart();
   }
 
   deletedata(titleiddelete){
     this.febServe.deleteBudget(titleiddelete);
-    location.reload();
+    setTimeout(() => {
+      this.createchart();
+     location.reload();
+    }, 100);
   }
 
   createchart()
   {
-      if(this.pie){
-        this.pie.destroy();
-      }
-      if(this.buble){
-        this.buble.destroy();
-      }
-      if(this.bar){
-        this.bar.destroy();
-      }
+    if(this.pie){
+      this.pie.destroy();
+    }
+    if(this.buble){
+      this.buble.destroy();
+    }
+    if(this.bar){
+      this.bar.destroy();
+    }
 
-      const ctx = document.getElementById('myChartPie');
-      this.pie = new Chart(ctx, {
-      type: 'pie',
-      data: this.dataSource
-      });
+    const ctx = document.getElementById('myChartPie');
+    this.pie = new Chart(ctx, {
+    type: 'pie',
+    data: this.chartData
+    });
 
-      const ctx1=document.getElementById('myChartBubble');
-      this.buble=new Chart(ctx1, {
-        data: this.dataSource,
-        type: 'doughnut',
+    const ctx1=document.getElementById('myChartBubble');
+    this.buble=new Chart(ctx1, {
+      data: this.chartData,
+      type: 'doughnut',
     });
 
     const ctx2=document.getElementById('myChartBar');
     this.bar=new Chart(ctx2, {
-      data: this.dataSource,
+      data: this.chartData,
       type: 'horizontalBar',
       options:{
         scales: {
@@ -143,15 +144,20 @@ export class FebruaryComponent implements OnInit {
     }
   });
 
-
     }
-  dynamicolors()
-    {
-      const r=Math.floor(Math.random()*255);
-      const g=Math.floor(Math.random()*255);
-      const b=Math.floor(Math.random()*255);
-
-      return 'rgb('+r+','+g+','+b+')';
-    }
-
+    // togg(){
+    //   var x = document.getElementById("edit1");
+    //   if (x.style.display === "none") {
+    //     x.style.display = "block";
+    //   } else {
+    //     x.style.display = "none";
+    //   }
+    // }
+  dynamicolors(){
+    const r=Math.floor(Math.random()*255);
+    const g=Math.floor(Math.random()*255);
+    const b=Math.floor(Math.random()*255);
+    return 'rgb('+r+','+g+','+b+')';
   }
+
+}

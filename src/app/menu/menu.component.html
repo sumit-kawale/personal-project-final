@@ -2,12 +2,10 @@
 <nav class="menu-nav">
   <ul>
       <li><a [routerLink]="['/']" aria-label="Home page">Home</a></li>
-      <li><a [routerLink]="['/dashboard']" aria-label="Dashboard" *ngIf="show">Dashboard</a></li>
-      <li><a [routerLink]="['/about']" aria-label="About us">About</a></li>
-      <li><a [routerLink]="['/login']" aria-label="User Login" >Login</a></li>
-      <li><a [routerLink]="['/signup']" aria-label="signup" >signup</a></li>
-      <li><a class="nav-link" aria-label="signup" (click)="authService.SignOut()" *ngIf="show">Log Out</a></li>
-      <li><a [routerLink]="['/contact']" aria-label="Contact Website Administrator">Contact</a></li>
+      <li><a [routerLink]="['/dashboard']" aria-label="Dashboard" >Dashboard</a></li>
+      <li><a (click)="onLogin()" aria-label="User Login" >Login</a></li>
+      <li><a (click)="onSignup()" aria-label="User Sign Up" >Sign up</a></li>
+
   </ul>
 </nav>
 

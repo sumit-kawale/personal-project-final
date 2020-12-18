@@ -29,23 +29,21 @@ const routes: Routes = [
     component: HomepageComponent,
     pathMatch: 'full'
   },
-  {
-    path:'about',
-    component: AboutComponent
-  },
+  // {
+  //   path:'about',
+  //   component: AboutComponent
+  // },
   {
     path:'login',
-    component: LoginComponent,
-    // canActivate: [AuthGuard]
+    component: LoginComponent
   },
-  {
-    path:'contact',
-    component: ContactComponent
-  },
+  // {
+  //   path:'contact',
+  //   component: ContactComponent
+  // },
   {
     path:'signup',
-    component: SignupComponent,
-    // canActivate: [AuthGuard]
+    component: SignupComponent
   },
   {
     path:'verify-email-address',

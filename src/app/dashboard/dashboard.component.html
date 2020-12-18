@@ -1,45 +1,26 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <nav >
+  <table>
+  <th id="bar">
   <ul>
-    <li>
-      <button type="button" (click)="setJanuary()">January</button>
-    </li>
-    <li>
-      <button type="button" (click)="setFebruary()">February</button>
-    </li>
-    <li>
-      <button type="button" (click)="setMarch()">March</button>
-    </li>
-    <li>
-      <button type="button" (click)="setApril()">April</button>
-    </li>
-    <li>
-      <button type="button" (click)="setMay()">May</button>
-    </li>
-    <li>
-      <button type="button" (click)="setJune()">June</button>
-    </li>
-    <li>
-      <button type="button" (click)="setJuly()">July</button>
-    </li>
-    <li>
-      <button type="button" (click)="setAugust()">August</button>
-    </li>
-    <li>
-      <button type="button" (click)="setSeptember()">September</button>
-    </li>
-    <li>
-      <button type="button" (click)="setOctober()">October</button>
-    </li>
-    <li>
-      <button type="button" (click)="setNovember()">November</button>
-    </li>
-    <li>
-      <button type="button" (click)="setDecember()">December</button>
-    </li>
+    <button type="button" (click)="setJanuary()">January</button>
+    <button type="button" (click)="setFebruary()">February</button>
+    <button type="button" (click)="setMarch()">March</button>
+    <button type="button" (click)="setApril()">April</button>
+    <button type="button" (click)="setMay()">May</button>
+    <button type="button" (click)="setJune()">June</button>
+    <button type="button" (click)="setJuly()">July</button>
+    <button type="button" (click)="setAugust()">August</button>
+    <button type="button" (click)="setSeptember()">September</button>
+    <button type="button" (click)="setOctober()">October</button>
+    <button type="button" (click)="setNovember()">November</button>
+    <button type="button" (click)="setDecember()">December</button>
+    <button id="blueLog"><a class="nav-link" aria-label="signup" (click)="authService.SignOut()" >Log Out</a></button>
 
   </ul>
-</nav>
+  </th>
+<th class="center" width="100%">
 <div class="center">
 <br>
 <br>
@@ -58,3 +39,6 @@
 
 <router-outlet></router-outlet>
 </div>
+</th>
+</table>
+</nav>

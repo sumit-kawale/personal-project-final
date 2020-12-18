@@ -1,8 +1,11 @@
 <!-- <p>login works!</p> -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <div class="center p-2">
   <h1> Log In</h1>
   <div class="form-group">
+  <!-- <label class="w3-text-blue"><b>First Name</b></label> -->
+
     <input type="text" class="formControl" placeholder="Username" #userName required>
   </div>
 <br>
@@ -11,7 +14,7 @@
   </div>
 <br>
   <div class = "form-group">
-    <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
+    <input type="button" class="btn btnPrimary" value="Log in"  (click)="authService.SignIn(userName.value, userPassword.value)">
   </div>
 <br>
   <div class="redirectToLogin">
@@ -19,3 +22,13 @@
   </div>
 
 </div>
+<!-- <form class="w3-container w3-card-4" action="/action_page.php">
+  <p>
+  <label class="w3-text-blue"><b>First Name</b></label>
+  <input class="w3-input w3-border" name="first" type="text"></p>
+  <p>
+  <label class="w3-text-blue"><b>Last Name</b></label>
+  <input class="w3-input w3-border" name="last" type="text"></p>
+  <p>
+  <button class="w3-btn w3-blue">Register</button></p>
+</form> -->

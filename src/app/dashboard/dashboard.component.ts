@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { AuthGuard } from '../guard/auth.guard';
+import { Router } from  "@angular/router";
+import { AuthService } from '../auth/auth.service';
+
+
 
 @Component({
   selector: 'pb-dashboard',
@@ -9,16 +13,20 @@ import { AuthGuard } from '../guard/auth.guard';
 })
 export class DashboardComponent implements OnInit {
 
-  // public monthSet
   public test=0;
 
   constructor(
-    public authguard: AuthGuard
-  ) { }
-
-  ngOnInit(): void {
+    public authguard: AuthGuard,
+    public router: Router,
+    public authService: AuthService
+  ) {
+     if(localStorage.getItem('userid')==null){
+      this.router.navigate(['login']);
+    }
   }
-   monthSet="Jan";
+  ngOnInit(): void {
+   }
+   monthSet="jan";
 
   setJanuary(){
     this.monthSet = "jan";
