@@ -37,13 +37,13 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 var firebaseConfig = {
-      apiKey: "AIzaSyDl-Xb3iIjsKz4LJdOnRnsX-dP6tmQokPc",
-      authDomain: "personal-budget-dc0a6.firebaseapp.com",
-      projectId: "personal-budget-dc0a6",
-      storageBucket: "personal-budget-dc0a6.appspot.com",
-      messagingSenderId: "537773871725",
-      appId: "1:537773871725:web:a08d1f6b1572199e7c6564",
-      measurementId: "G-N50RPWK7TG"
+      apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      authDomain: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      projectId: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      storageBucket: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      messagingSenderId: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      appId: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      measurementId: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     };
 
 @NgModule({
