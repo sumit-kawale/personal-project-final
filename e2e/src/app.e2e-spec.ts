@@ -10,7 +10,13 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('personal-budget app is running!');
+    expect(page.getTitleText()).toEqual('Home');
+  });
+  
+  it('should display Click Success', () => {
+    page.navigateTo();
+    page.getClick().click();
+    expect(page.getClick().getText());
   });
 
   afterEach(async () => {

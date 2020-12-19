@@ -6,6 +6,10 @@ export class AppPage {
   }
 
   getTitleText(): Promise<string> {
-    return element(by.css('pb-root .content span')).getText() as Promise<string>;
+    return element(by.css('pb-menu a')).getText() as Promise<string>;
+  }
+
+  getClick(){
+    return element(by.partialLinkText('Login'));
   }
 }
